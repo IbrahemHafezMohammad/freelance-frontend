@@ -1,9 +1,9 @@
-import { Outlet, Navigate, Route, Routes, useLocation } from "react-router-dom";
-
+import { Outlet, Navigate, Router, Route, Routes, useLocation } from "react-router-dom";
+import React, { useState } from "react";
 import { Footer, Navbar } from "./components";
 import {
   About,
-  AuthPage,
+  Auth,
   Companies,
   CompanyProfile,
   FindJobs,
@@ -26,34 +26,39 @@ function Layout() {
 }
 
 function App() {
+
+  const [authFormOpen, setAuthFormOpen] = useState(false);
+  const [authFormType, setAuthFormType] = useState("login");
+
   const { user } = useSelector((state) => state.user);
   return (
     <main className='bg-[#f7fdfd]'>
-      <Navbar />
+      <Navbar setAuthFormOpen={setAuthFormOpen} setAuthFormType={setAuthFormType} />
 
       <Routes>
         {/* <Route element={<Layout />}> */}
-          <Route path="/" element={<InitialPage />} />
-          <Route path='/find-jobs' element={<FindJobs />} />
-          <Route path='/companies' element={<Companies />} />
-          <Route
-            path={
-              user?.user?.accountType === "seeker"
-                ? "/user-profile"
-                : "/user-profile/:id"
-            }
-            element={<UserProfile />}
-          />
-
-          <Route path={"/company-profile"} element={<CompanyProfile />} />
-          <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
-          <Route path={"/upload-job"} element={<UploadJob />} />
-          <Route path={"/job-detail/:id"} element={<JobDetail />} />
-        {/* </Route> */}
-
+        <Route path="/" element={<InitialPage />} />
+        <Route path='/find-jobs' element={<FindJobs />} />
+        <Route path='/companies' element={<Companies />} />
+        <Route path={"/company-profile"} element={<CompanyProfile />} />
+        <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
+        <Route path={"/upload-job"} element={<UploadJob />} />
+        <Route path={"/job-detail/:id"} element={<JobDetail />} />
         <Route path='/about-us' element={<About />} />
-        <Route path='/user-auth' element={<AuthPage />} />
+        {authFormOpen && (
+          <Route
+            path="/user-auth"
+            element={
+              <Auth
+                formType={authFormType}
+                setFormType={setAuthFormType}
+                setAuthFormOpen={setAuthFormOpen}
+              />
+            }
+          />
+        )}
       </Routes>
+
       {user && <Footer />}
     </main>
   );

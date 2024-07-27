@@ -1,5 +1,5 @@
 import FindJobs from "./FindJobs";
-import AuthPage from "./Auth";
+import Auth from "./Auth";
 import Companies from "./Companies";
 import UserProfile from "./UserProfile";
 import CompanyProfile from "./CompanyProfile";
@@ -10,12 +10,12 @@ import InitialPage from "./InitialPage";
 
 export {
   FindJobs,
-  AuthPage,
+  Auth,
   Companies,
   UserProfile,
   CompanyProfile,
   UploadJob,
   About,
   JobDetail,
-  InitialPage
+  InitialPage,
 };

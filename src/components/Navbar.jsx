@@ -119,24 +119,18 @@ const Navbar = ({ setAuthFormOpen, setAuthFormType }) => {
         <div className="hidden lg:block">
           {!user ? (
             <>
-              <button
-                onClick={() => openAuthForm("login")}
-                className="mr-4"
-              >
+              <div className="mr-4" onClick={() => openAuthForm("login")}>
                 <CustomButton
                   title="Sign In"
                   containerStyles="text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600"
                 />
-              </button>
-              <button
-                onClick={() => openAuthForm("register")}
-                className="mr-4"
-              >
+              </div>
+              <div className="mr-4" onClick={() => openAuthForm("register")}>
                 <CustomButton
                   title="Sign Up"
                   containerStyles="text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600"
                 />
-              </button>
+              </div>
             </>
           ) : (
             <MenuList user={user} />
@@ -176,24 +170,18 @@ const Navbar = ({ setAuthFormOpen, setAuthFormType }) => {
             <li className="py-2 w-full">
               {!user ? (
                 <>
-                  <button
-                    onClick={() => openAuthForm("login")}
-                    className="w-full mb-2"
-                  >
+                  <div className="w-full mb-2" onClick={() => openAuthForm("login")}>
                     <CustomButton
                       title="Sign In"
                       containerStyles="w-full text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600"
                     />
-                  </button>
-                  <button
-                    onClick={() => openAuthForm("register")}
-                    className="w-full"
-                  >
+                  </div>
+                  <div className="w-full" onClick={() => openAuthForm("register")}>
                     <CustomButton
                       title="Sign Up"
                       containerStyles="w-full text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600"
                     />
-                  </button>
+                  </div>
                 </>
               ) : (
                 <MenuList user={user} />
