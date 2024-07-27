@@ -10,6 +10,7 @@ import {
   JobDetail,
   UploadJob,
   UserProfile,
+  InitialPage
 } from "./pages";
 import { useSelector } from "react-redux";
 
@@ -31,11 +32,8 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route element={<Layout />}>
-          <Route
-            path='/'
-            element={<Navigate to='/find-jobs' replace={true} />}
-          />
+        {/* <Route element={<Layout />}> */}
+          <Route path="/" element={<InitialPage />} />
           <Route path='/find-jobs' element={<FindJobs />} />
           <Route path='/companies' element={<Companies />} />
           <Route
@@ -51,7 +49,7 @@ function App() {
           <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
           <Route path={"/upload-job"} element={<UploadJob />} />
           <Route path={"/job-detail/:id"} element={<JobDetail />} />
-        </Route>
+        {/* </Route> */}
 
         <Route path='/about-us' element={<About />} />
         <Route path='/user-auth' element={<AuthPage />} />

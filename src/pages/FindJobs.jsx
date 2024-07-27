@@ -42,7 +42,7 @@ const FindJobs = () => {
       <Header
         title='Find Your Dream Job with Ease'
         type='home'
-        handleClick={() => {}}
+        handleClick={() => { }}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         location={jobLocation}
